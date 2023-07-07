@@ -55,4 +55,20 @@ private final static String USER_NOT_FOUND_MSG = "user with username % not found
         return ResponseEntity.ok("User " + appUser.getName() + " has been registered successfully");
     }
 
+    public boolean isValidLogin(String username, String email, String password) {
+
+        Optional<AppUser> useroptional = appUserRepository.findByEmail(email);
+        if (useroptional.isPresent()){
+        AppUser user = useroptional.get();
+        if (user != null && bCryptPasswordEncoder.matches(password, user.getPassword()) && user.getUsername().equals(username)) {
+
+            return true;
+        } else {
+
+            return false;
+        }
+        } else return false;
+    }
+
+
 }

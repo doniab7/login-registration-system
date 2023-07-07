@@ -24,14 +24,14 @@ public class WebSecurityConfig  {
 
     @Bean
     public WebSecurityCustomizer webSecurityCustomizer() {
-        return (web) -> web.ignoring().requestMatchers("/api/registration/**");
+        return (web) -> web.ignoring().requestMatchers("/api/registration/**","/api/login/**");
     }
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .requestMatchers("/api/registration/**")
+                .requestMatchers("/api/registration/**","/api/login/**")
                 .permitAll()
                 .anyRequest()
                 .authenticated();
