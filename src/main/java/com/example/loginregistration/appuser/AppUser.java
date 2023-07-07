@@ -40,6 +40,16 @@ public class AppUser implements UserDetails {
     private Boolean locked = false;
     private Boolean enabled = true;
 
+    @Override
+    public String toString() {
+        return "AppUser{" +
+                "name='" + name + '\'' +
+                ", username='" + username + '\'' +
+                ", email='" + email + '\'' +
+                ", appUserRole=" + appUserRole +
+                '}';
+    }
+
     public AppUser(String name, String username, String email, String password, AppUserRole appUserRole) {
         this.name = name;
         this.username = username;

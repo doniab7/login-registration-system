@@ -31,7 +31,7 @@ private final static String USER_NOT_FOUND_MSG = "user with username % not found
     }
 
 
-    public UserDetails loadUserByEmail(String email) throws UsernameNotFoundException{
+    public AppUser loadUserByEmail(String email) throws UsernameNotFoundException{
 
         Optional<AppUser> optionalUser = appUserRepository.findByEmail(email);
         if (optionalUser.isPresent()) {

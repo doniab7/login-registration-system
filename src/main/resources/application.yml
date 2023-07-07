@@ -18,5 +18,7 @@ spring:
     show-sql: true
   session:
     store-type: redis
-    redis:
-      namespace: auth-sessions
+  redis:
+    namespace: auth-sessions
+  main:
+    allow-bean-definition-overriding: true
